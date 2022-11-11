@@ -10,8 +10,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, FormView, ListView
 
-from . import forms
-from . import models
+from . import forms, models
 from .utils import DataMixin, menu
 
 

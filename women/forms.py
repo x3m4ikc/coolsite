@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 from django.forms import Form
 from django.forms.fields import CharField, EmailField
 from django.forms.models import ModelForm
-from django.forms.widgets import TextInput, Textarea, EmailInput, PasswordInput
+from django.forms.widgets import EmailInput, PasswordInput, Textarea, TextInput
 
 from .models import Women
 
