@@ -1,17 +1,8 @@
 """Django-func path"""
 from django.urls import path
 
-from .views import (
-    AddPage,
-    ContactFormView,
-    LoginUser,
-    RegisterUser,
-    ShowPost,
-    WomenCategory,
-    WomenHome,
-    about,
-    logout_user,
-)
+from .views import (AddPage, ContactFormView, LoginUser, RegisterUser,
+                    ShowPost, WomenCategory, WomenHome, about, logout_user)
 
 urlpatterns = [
     path("", WomenHome.as_view(), name="home"),
