@@ -30,7 +30,7 @@ class WomenAdmin(admin.ModelAdmin):
     readonly_fields = ("time_create", "time_update", "get_html_photo")
     save_on_top = True
 
-    def get_html_photo(self, obj: Any) -> Any | None:
+    def get_html_photo(self, obj: Any) -> Any | None:  # type: ignore
         """Getter photo"""
         if obj.photo:
             return mark_safe(f"<img src='{obj.photo.url}' width=50>")

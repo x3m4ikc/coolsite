@@ -62,7 +62,7 @@ class ContactFormView(DataMixin, FormView):
         c_def = self.get_user_context(title="Обратная связь")
         return dict(list(context.items()) + list(c_def.items()))
 
-    def form_valid(self, form: models.Women) -> HttpResponse:
+    def form_valid(self) -> HttpResponse:
         return redirect("home")
 
 
