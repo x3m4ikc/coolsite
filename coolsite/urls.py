@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from coolsite import settings
-from women.views import page_not_found
+#from women.views import page_not_found
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -17,4 +17,4 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )  # type:ignore
 
-handler404 = page_not_found
+#handler404 = page_not_found
