@@ -1,3 +1,0 @@
-Django~=4.1.2
-django-simple-captcha~=0.5.17
-django-debug-toolbar~=3.7.0
