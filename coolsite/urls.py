@@ -17,4 +17,9 @@ if settings.DEBUG:
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )  # type:ignore
 
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls)),]
+
+urlpatterns += [path('captcha/', include('captcha.urls')),
+                static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)]  # type:ignore
+
 handler404 = page_not_found
