@@ -1,8 +1,6 @@
 """Django classes and funcs for creating views"""
 from typing import Any
 
-from .models import Category, Women
-from django.utils.safestring import mark_safe
 from django.contrib import admin
 from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,9 +9,11 @@ from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from django.utils.safestring import mark_safe
 from django.views.generic import CreateView, DetailView, FormView, ListView
 
 from . import forms, models
+from .models import Category, Women
 from .utils import DataMixin, menu
 
 
@@ -65,7 +65,7 @@ class ContactFormView(DataMixin, FormView):
         c_def = self.get_user_context(title="Обратная связь")
         return dict(list(context.items()) + list(c_def.items()))
 
-    def form_valid(self) -> HttpResponse:
+    def form_valid(self) -> HttpResponse:   # type: ignore
         return redirect("home")
 
 
