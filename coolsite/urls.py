@@ -8,14 +8,19 @@ from women.views import page_not_found
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("captcha/", include("captcha.urls")),
+    path('__debug__/', include('debug_toolbar.urls')),
     path("", include("women.urls")),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
-    )  # type:ignore
+    import debug_toolbar
+
+    urlpatterns = [
+                      path('__debug__/', include(debug_toolbar.urls)),
+                  ] + urlpatterns
+
+urlpatterns += [path('captcha/', include('captcha.urls')),
+                static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)]  # type:ignore
 
     urlpatterns += [path('__debug__/', include(debug_toolbar.urls)),]
 
